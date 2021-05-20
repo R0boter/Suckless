@@ -1,0 +1,32 @@
+dmenu - dynamic menu
+====================
+dmenu is an efficient dynamic menu for X.
+
+
+Requirements
+------------
+In order to build dmenu you need the Xlib header files.
+
+
+Installation
+------------
+Edit config.mk to match your local setup (dmenu is installed into
+the /usr/local namespace by default).
+
+Afterwards enter the following command to build and install dmenu
+(if necessary as root):
+
+    make clean install
+
+
+Running dmenu
+-------------
+See the man page for details.
+
+简介
+-------------
+上面是 Suckless 官网上对 dmenu 的介绍。
+
+此仓库是我从官网克隆下来后进行了一定的修改， 是用于我自己日常使用的 DWM 的启动器
+
+主要是对配色和字体进行来了修改，用以配合我 DWM 使用的 gruvbox 主题
