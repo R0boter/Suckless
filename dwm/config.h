@@ -111,6 +111,8 @@ static const char *lowervol[] = {
 static const char *mute[] = {"pactl", "set-sink-mute",
                              "alsa_output.pci-0000_04_00.1.hdmi-stereo-extra1",
                              "toggle", NULL};
+static const char *brightup[] = {"sudo", "light", "-A", "10", NULL};
+static const char *brightdown[] = {"sudo", "light", "-U", "10", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -165,6 +167,8 @@ static Key keys[] = {
     {0, XF86XK_AudioRaiseVolume, spawn, {.v = raisevol}},
     {0, XF86XK_AudioLowerVolume, spawn, {.v = lowervol}},
     {0, XF86XK_AudioMute, spawn, {.v = mute}},
+    {0, XF86XK_MonBrightnessUp, spawn, {.v = brightup}},
+    {0, XF86XK_MonBrightnessDown, spawn, {.v = brightdown}},
 };
 
 /* button definitions */
