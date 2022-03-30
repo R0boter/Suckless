@@ -108,8 +108,8 @@ static const char *lowervol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
                                  "-5%", NULL};
 static const char *mute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@",
                              "toggle", NULL};
-static const char *brightup[] = {"sudo", "light", "-A", "10", NULL};
-static const char *brightdown[] = {"sudo", "light", "-U", "10", NULL};
+static const char *brightup[] = {"light", "-A", "10", NULL};
+static const char *brightdown[] = {"light", "-U", "10", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
