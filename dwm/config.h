@@ -102,14 +102,11 @@ static const char *flameshot[] = {"flameshot", "gui", NULL};
 
 /* Add Volume set key binding */
 #include <X11/XF86keysym.h>
-static const char *raisevol[] = {
-    "pactl", "set-sink-volume",
-    "alsa_output.pci-0000_04_00.1.hdmi-stereo-extra1", "+5%", NULL};
-static const char *lowervol[] = {
-    "pactl", "set-sink-volume",
-    "alsa_output.pci-0000_04_00.1.hdmi-stereo-extra1", "-5%", NULL};
-static const char *mute[] = {"pactl", "set-sink-mute",
-                             "alsa_output.pci-0000_04_00.1.hdmi-stereo-extra1",
+static const char *raisevol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
+                                 "+5%", NULL};
+static const char *lowervol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
+                                 "-5%", NULL};
+static const char *mute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@",
                              "toggle", NULL};
 static const char *brightup[] = {"sudo", "light", "-A", "10", NULL};
 static const char *brightdown[] = {"sudo", "light", "-U", "10", NULL};
