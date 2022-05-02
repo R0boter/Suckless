@@ -172,6 +172,7 @@ struct Monitor {
   unsigned int seltags;
   unsigned int sellt;
   unsigned int tagset[2];
+  int rmaster;
   int showbar;
   int topbar;
   Client *clients;
@@ -281,6 +282,7 @@ static void tagmon(const Arg *arg);
 static void tile(Monitor *);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
+static void togglermaster(const Arg *arg);
 static void togglescratch(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
@@ -763,6 +765,7 @@ Monitor *createmon(void) {
   m->tagset[0] = m->tagset[1] = 1;
   m->mfact = mfact;
   m->nmaster = nmaster;
+  m->rmaster = rmaster;
   m->showbar = showbar;
   m->topbar = topbar;
   m->lt[0] = &layouts[0];
@@ -2066,19 +2069,20 @@ void tile(Monitor *m) {
     return;
 
   if (n > m->nmaster)
-    mw = m->nmaster ? m->ww * m->mfact : 0;
+    mw = m->nmaster ? m->ww * (m->rmaster ? 1.0 - m->mfact : m->mfact) : 0;
   else
     mw = m->ww;
   for (i = my = ty = 0, c = nexttiled(m->clients); c;
        c = nexttiled(c->next), i++)
     if (i < m->nmaster) {
       h = (m->wh - my) / (MIN(n, m->nmaster) - i);
-      resize(c, m->wx, m->wy + my, mw - (2 * c->bw), h - (2 * c->bw), 0);
+      resize(c, m->rmaster ? m->wx + m->ww - mw : m->wx, m->wy + my,
+             mw - (2 * c->bw), h - (2 * c->bw), 0);
       my += HEIGHT(c);
     } else {
       h = (m->wh - ty) / (n - i);
-      resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2 * c->bw),
-             h - (2 * c->bw), 0);
+      resize(c, m->rmaster ? m->wx : m->wx + mw, m->wy + ty,
+             m->ww - mw - (2 * c->bw), h - (2 * c->bw), 0);
       ty += HEIGHT(c);
     }
 }
@@ -2110,6 +2114,14 @@ void togglefloating(const Arg *arg) {
     resize(selmon->sel, selmon->sel->x, selmon->sel->y, selmon->sel->w,
            selmon->sel->h, 0);
   arrange(selmon);
+}
+
+void togglermaster(const Arg *arg) {
+  selmon->rmaster = !selmon->rmaster;
+  /* now mfact represents the left factor */
+  selmon->mfact = 1.0 - selmon->mfact;
+  if (selmon->lt[selmon->sellt]->arrange)
+    arrange(selmon);
 }
 
 void togglescratch(const Arg *arg) {
