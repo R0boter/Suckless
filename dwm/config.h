@@ -16,8 +16,8 @@ static const int systraypinningfailfirst =
 static const int showsystray = 1; /* 0 means no systray */
 static const int showbar = 1;     /* 0 means no bar */
 static const int topbar = 1;      /* 0 means bottom bar */
-static const char *fonts[] = {"OperatorMono Nerd Font:size=20"};
-static const char dmenufont[] = "OperatorMono Nerd Font:size=20";
+static const char *fonts[] = {"Operator Mono Book:size=20"};
+static const char dmenufont[] = "Operator Mono Book:size=20";
 static const char col_gray1[] = "#232b39";
 static const char col_gray2[] = "#00c0ce";
 static const char col_gray3[] = "#d869eb";
@@ -63,11 +63,12 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 1, -1},
+    {"Flameshot", NULL, NULL, 0, 1, -1},
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
 };
 
 /* layout(s) */
-static const float mfact = 0.45; /* factor of master area size [0.05..0.95] */
+static const float mfact = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;   /* number of clients in master area */
 static const int resizehints =
     1; /* 1 means respect size hints in tiled resizals */

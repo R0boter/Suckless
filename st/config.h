@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "OperatorMono Nerd Font:pixelsize=22:antialias=true:autohint=true";
+static char *font = "OperatorMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
 static int borderpx = 0;
 
 /*
@@ -152,7 +152,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 4;
+static unsigned int cursorshape = 6;
 
 /*
  * Default columns and rows numbers
