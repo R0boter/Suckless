@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "OperatorMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
+static char *font = "FiraCode Nerd Font Mono:pixelsize=18:antialias=true:autohint=true";
 static int borderpx = 0;
 
 /*
@@ -94,47 +94,49 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
   /* 8 normal colors */
-  [0] = "#232b39", /* hard contrast: #1d2021 / soft contrast: #32302f */
-  [1] = "#ff5167", /* red     */
-  [2] = "#87cd66", /* green   */
-  [3] = "#f2c167", /* yellow  */
-  [4] = "#37b1fc", /* blue    */
-  [5] = "#d869eb", /* magenta */
-  [6] = "#00c0ce", /* cyan    */
-  [7] = "#a3b0c7", /* white   */
+//  [0] = "#3b4252", /* hard contrast: #1d2021 / soft contrast: #32302f */
+//  [1] = "#bf616a", /* red     */
+//  [2] = "#a3be8c", /* green   */
+//  [3] = "#ebcb8b", /* yellow  */
+//  [4] = "#81a1c1", /* blue    */
+//  [5] = "#b48ead", /* magenta */
+//  [6] = "#88c0d0", /* cyan    */
+//  [7] = "#e5e9f0", /* white   */
+//
+//
+//  /* 8 bright colors */
+//  [8]  = "#4c566a", /* black   */
+//  [9]  = "#bf616a", /* red     */
+//  [10] = "#a3be8c", /* green   */
+//  [11] = "#ebcb8b", /* yellow  */
+//  [12] = "#81a1c1", /* blue    */
+//  [13] = "#b48ead", /* magenta */
+//  [14] = "#88c0d0", /* cyan    */
+//  [15] = "#eceff4", /* white   */
+  /* 8 normal colors */
+  [0] = "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+  [1] = "#ea6962", /* red     */
+  [2] = "#a9b665", /* green   */
+  [3] = "#d8a657", /* yellow  */
+  [4] = "#7daea3", /* blue    */
+  [5] = "#d3869b", /* magenta */
+  [6] = "#89b482", /* cyan    */
+  [7] = "#d4be98", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#232b39", /* black   */
-  [9]  = "#ff5167", /* red     */
-  [10] = "#87cd66", /* green   */
-  [11] = "#f2c167", /* yellow  */
-  [12] = "#37b1fc", /* blue    */
-  [13] = "#d869eb", /* magenta */
-  [14] = "#00c0ce", /* cyan    */
-  [15] = "#a3b0c7", /* white   */
- // [0] = "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
- // [1] = "#cc241d", /* red     */
- // [2] = "#98971a", /* green   */
- // [3] = "#d79921", /* yellow  */
- // [4] = "#458588", /* blue    */
- // [5] = "#b16286", /* magenta */
- // [6] = "#689d6a", /* cyan    */
- // [7] = "#a89984", /* white   */
-
- // /* 8 bright colors */
- // [8]  = "#928374", /* black   */
- // [9]  = "#fb4934", /* red     */
- // [10] = "#b8bb26", /* green   */
- // [11] = "#fabd2f", /* yellow  */
- // [12] = "#83a598", /* blue    */
- // [13] = "#d3869b", /* magenta */
- // [14] = "#8ec07c", /* cyan    */
- // [15] = "#ebdbb2", /* white   */
+  [8]  = "#928374", /* black   */
+  [9]  = "#ef938e", /* red     */
+  [10] = "#bbc585", /* green   */
+  [11] = "#e1bb7e", /* yellow  */
+  [12] = "#9dc2ba", /* blue    */
+  [13] = "#e1acbb", /* magenta */
+  [14] = "#a7c7a2", /* cyan    */
+  [15] = "#e2d3ba", /* white   */
 };
 /*
  * Default colors (colorname index)
@@ -142,8 +144,8 @@ static const char *colorname[] = {
  */
 unsigned int defaultfg = 15;
 unsigned int defaultbg = 0;
-static unsigned int defaultcs = 15;
-static unsigned int defaultrcs = 257;
+static unsigned int defaultcs = 10;
+static unsigned int defaultrcs = 9;
 
 /*
  * Default shape of cursor

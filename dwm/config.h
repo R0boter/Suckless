@@ -4,39 +4,28 @@
 static const unsigned int borderpx = 4; /* border pixel of windows */
 static const unsigned int gappx = 4;    /* gaps between windows */
 static const unsigned int snap = 10;    /* snap pixel */
-static const int rmaster =
-    1; /* 1 means master-area is initially on the right */
-static const unsigned int systraypinning =
-    0; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor
+static const int rmaster = 0; /* 1 means master-area is initially on the right */
+static const unsigned int systraypinning =0; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor
           X */
 static const unsigned int systrayspacing = 2; /* systray spacing */
-static const int systraypinningfailfirst =
-    1; /* 1: if pinning fails, display systray on the first monitor, False:
-          display systray on the last monitor*/
-static const int showsystray = 1; /* 0 means no systray */
+static const int systraypinningfailfirst = 1; /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray = 0; /* 0 means no systray */
 static const int showbar = 1;     /* 0 means no bar */
 static const int topbar = 1;      /* 0 means bottom bar */
-static const char *fonts[] = {"Operator Mono Book:size=20"};
-static const char dmenufont[] = "Operator Mono Book:size=20";
-static const char col_gray1[] = "#232b39";
-static const char col_gray2[] = "#00c0ce";
-static const char col_gray3[] = "#d869eb";
-static const char col_gray4[] = "#ff5167";
-static const char col_cyan[] = "#37b1fc"; /*928374 a89984 98971a */
-
-/* static const char col_gray1[] = "#282828";
-static const char col_gray2[] = "#282828";
-static const char col_gray3[] = "#a89984";
-static const char col_gray4[] = "#fabd2f";
-static const char col_cyan[] = "#98971a"; 
-*/
+static const char *fonts[] = {"JetBrainsMono Nerd Font:size=16"};
+static const char dmenufont[] = "FiraCode Nerd Font Mono:size=16";
+//static const char col_gray1[] = "#333333";
+//static const char col_gray2[] = "#444444";
+//static const char col_gray3[] = "#ffffff";
+//static const char col_gray4[] = "#bbbbbb";
+//static const char col_cyan[] = "#7799AA"; 
 
 static const unsigned int baralpha = OPAQUE; // 0xd0
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3] = {
     /*               fg         bg         border   */
-    [SchemeNorm] = {col_cyan, col_gray1, col_gray2},
-    [SchemeSel] = {col_gray3, col_gray1, col_gray4},
+    [SchemeNorm] = {"#e2d3ba", "#282828", "#a9b665"},
+    [SchemeSel] = {"#d8a657", "#282828", "#ea6962"},
 };
 static const unsigned int alphas[][3] = {
     /*               fg      bg        border     */
@@ -45,7 +34,9 @@ static const unsigned int alphas[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = {"", "", "", "", "", "ﳜ"};
+
+/* static const char *tags[] = {"", "", "", "", "", "ﳜ"}; */
+static const char *tags[] = {"", "", "", "", "", "﮸"};
 
 static const unsigned int ulinepad =
     5; /* horizontal padding between the underline and tag */
@@ -62,6 +53,9 @@ static const Rule rules[] = {
      *	WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
+    {NULL, NULL, "Media viewer", 0, 1, -1},
+    {"wemeetapp", NULL, NULL, TAGMASK, 1, -1},
+    {"Telegram", NULL, NULL, 0, 1, -1},
     {"Gimp", NULL, NULL, 0, 1, -1},
     {"Flameshot", NULL, NULL, 0, 1, -1},
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
@@ -98,13 +92,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", "-i",      "-m",  dmenumon,
-                                 "-fn",       dmenufont, "-nb", col_gray1,
-                                 "-nf",       col_gray3, "-sb", col_gray1,
-                                 "-sf",       col_cyan, NULL};
+                                 "-fn",       dmenufont, "-nb", "#282828",
+                                 "-nf",       "#e2d3ba", "-sb", "#282828",
+                                 "-sf",       "#d8a657", NULL};
 static const char *termcmd[] = {"st", NULL};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = {"st", "-t",     scratchpadname,
-                                      "-g", "120x34", NULL};
+static const char *scratchpadcmd[] = {"st", "-t", scratchpadname, "-g", "120x34", NULL};
 /* Add slock and flameshot */
 static const char *slock[] = {"slock", NULL};
 static const char *flameshot[] = {"flameshot", "gui", NULL};
